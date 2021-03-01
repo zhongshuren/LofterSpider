@@ -1,5 +1,5 @@
 # LofterSpider
-A simple script to download images from a specific user.
+A simple script to download images from a specific Lofter user.
 
 ## Required version
 Python >= 3.6
