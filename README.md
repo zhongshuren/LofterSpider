@@ -1,10 +1,16 @@
 # LofterSpider
 只是为了把某个作者的所有图片下载下来而写的单纯程序。
+
 A simple script to download images from a specific Lofter user.
 
 ## Required version
 Python >= 3.6
-就这个，没了
+
+需要安装requests
+
+pip install requests
+
+就这些，没了
 
 ## 使用方法
 输入id，程序会在自己所在的位置创建一个文件夹，然后等就完事。
