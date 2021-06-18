@@ -1,6 +1,6 @@
-import requests
-import re
 import os
+import re
+import requests
 
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3100.0 ' \
              'Safari/537.36 '
@@ -11,11 +11,17 @@ def get_picture(post):
     pics = re.findall('(?<=bigimgsrc=").*?(?=\\?)', r.text)
     print(pics)
     cnt = 0
+    dates = re.findall('\\d{4}-\\d{2}-\\d{2}', r.text)
+    if len(dates):
+        date = dates[0]
+    else:
+        date = '????-??-??'
+    print(date)
     for pic in pics:
         extension = pic[-3:]
-        print(f'{id}/{post}_{cnt}.{extension}')
+        print(f'{id}/{date}_{cnt}.{extension}')
         cnt = cnt + 1
-        with open(f'{id}/{post}_{cnt}.{extension}', 'wb') as f:
+        with open(f'{id}/{date}_{cnt}.{extension}', 'wb') as f:
             f.write(requests.get(pic, headers={'User-Agent': user_agent}).content)
 
 
